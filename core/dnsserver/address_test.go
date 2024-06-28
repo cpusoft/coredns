@@ -23,6 +23,7 @@ func TestSplitProtocolHostPort(t *testing.T) {
 		{"dns://127.0.0.1://53", "", "", "", true},
 	} {
 		proto, ip, port, err := SplitProtocolHostPort(test.input)
+		t.Log(" Test SplitProtocolHostPort: proto:", proto, "  ip:", ip, " port:", port, err)
 		if test.shouldErr && err == nil {
 			t.Errorf("Test %d: (address = %s) expected error, but there wasn't any", i, test.input)
 			continue
